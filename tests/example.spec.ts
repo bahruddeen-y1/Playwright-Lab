@@ -7,6 +7,14 @@ test('login', async ({ page }) => {
   
 });
 
+test('login fail', async ({ page }) => {
+  await page.goto('http://localhost:3000/login');
+  await page.goto('http://localhost:3000/app');
+
+  await expect(page).toHaveTitle(/เข้าสู่ระบบ/);
+  
+});
+
 // test('loop number for input', async ({ page }) => {
 //   await page.goto('http://localhost:3000/login');
 //   await page.getByTestId('oauth-google').click();
